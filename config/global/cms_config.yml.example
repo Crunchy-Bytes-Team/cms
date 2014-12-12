@@ -1,0 +1,38 @@
+development: &default
+  blocks:
+    page_block_types:
+      text_only:
+        default: 'Fascia solo testo'
+        i18n_key: 'blocks.text_only'
+
+      link_only:
+        default: 'Fascia singolo link'
+        i18n_key: 'blocks.link_only'
+
+      links_view:
+        default: 'Fascia elenco link'
+        i18n_key: 'blocks.links_view'
+
+      image_text:
+        default: 'Fascia immagine e testo'
+        i18n_key: 'blocks.image_text'
+
+      text_image:
+        default: 'Fascia testo e immagine'
+        i18n_key: 'blocks.text_image'
+
+      tile_view:
+        default: 'Caselle immagini'
+        i18n_key: 'blocks.tile_view'
+
+      linked_boxes:
+        default: 'Box immagini con link'
+        i18n_key: 'blocks.linked_boxes'
+
+      background_image:
+        default: 'Fascia immagine fondo e testo'
+        i18n_key: 'blocks.background_image'
+
+      video:
+        default: 'Fascia video'
+        i18n_key: 'blocks.video'
