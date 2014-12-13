@@ -9,9 +9,11 @@ module Cms
 
     mount_uploader :image, ImageUploader
 
+    belongs_to :section, :foreign_key => :section_id, :class_name => 'Cms::Section'
+
     class << self
       def visible_fields
-        (super + [:page_blocks, :page_assets])
+        (super - [:section_id] + [:section, :page_blocks, :page_assets])
       end
     end
   end

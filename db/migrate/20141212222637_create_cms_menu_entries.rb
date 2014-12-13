@@ -1,6 +1,6 @@
-class CreateMenuEntries < ActiveRecord::Migration
+class CreateCmsMenuEntries < ActiveRecord::Migration
   def up
-    create_table :menu_entries do |t|
+    create_table :cms_menu_entries do |t|
       t.string   :title
       t.float    :position
       t.boolean  :published
@@ -14,11 +14,11 @@ class CreateMenuEntries < ActiveRecord::Migration
       t.timestamps
     end
 
-    MenuEntry.create_translation_table! :title => :string
+    Cms::MenuEntry.create_translation_table! :title => :string
   end
 
   def down
-    MenuEntry.drop_translation_table!
-    drop_table :menu_entries
+    Cms::MenuEntry.drop_translation_table!
+    drop_table :cms_menu_entries
   end
 end

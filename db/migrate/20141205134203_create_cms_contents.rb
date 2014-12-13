@@ -7,6 +7,7 @@ class CreateCmsContents < ActiveRecord::Migration
       t.string :subtitle
       t.string :slug, uniq: true, index: true
       t.string :code, uniq: true, index: true
+      t.integer :section_id
       t.text :abstract
       t.text :description
       t.references :content, index: true

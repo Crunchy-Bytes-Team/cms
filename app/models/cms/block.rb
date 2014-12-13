@@ -9,6 +9,12 @@ module Cms
       anchor_name.blank? ? "" : anchor_name.gsub("#","")
     end
 
+    after_initialize do
+      if new_record?
+        self.target_mode = 'Free'
+      end
+    end
+
     class << self
       def visible_fields
         (extra_fields_config.keys.concat(new.attributes.keys.collect{|k| k.to_sym}) - [:id, :created_at, :updated_at, :type, :extra_fields])
