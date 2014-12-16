@@ -1,4 +1,4 @@
-class AddTranslationsToBlocks < ActiveRecord::Migration
+class AddCmsTranslationsToBlocks < ActiveRecord::Migration
   def up
     Cms::Block.create_translation_table! :title => :string, :subtitle => :string, :abstract => :text, :description => :text
   end

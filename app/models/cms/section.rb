@@ -6,6 +6,8 @@ module Cms
     translates :name, :slug
     friendly_id :name, use: [:slugged, :globalize]
 
+    has_one :menu_entry, as: :target
+
     validates :code,
       uniqueness: true,
       allow_blank: false,
@@ -26,6 +28,6 @@ module Cms
 
     validates_uniqueness_of :slug
 
-    has_many :pages, dependent: :destroy, :class_name => 'Cms::Page'
+    has_many :pages, dependent: :destroy
   end
 end

@@ -11,7 +11,9 @@ module Cms
     scope :sorted, -> {order("date DESC")}
     mount_uploader :image, ImageUploader
 
-    has_many :news_assets, as: :assetable, dependent: :destroy, :class_name => 'Cms::NewsAsset'
+    has_one :menu_entry, as: :target
+
+    has_many :news_assets, as: :assetable, dependent: :destroy
     accepts_nested_attributes_for :news_assets, :reject_if => :all_blank, :allow_destroy => true
 
     has_one :document, as: :documentable, dependent: :destroy

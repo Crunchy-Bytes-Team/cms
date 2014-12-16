@@ -1,6 +1,6 @@
 module Cms
   class Engine < ::Rails::Engine
-    isolate_namespace Cms
+    #isolate_namespace Cms
 
     config.autoload_paths += %W(#{config.root}/app/models/concerns)
     config.autoload_paths += %W(#{config.root}/app/controllers/concerns)

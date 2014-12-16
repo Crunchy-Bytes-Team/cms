@@ -1,4 +1,4 @@
-class AddTranslationsToContents < ActiveRecord::Migration
+class AddCmsTranslationsToContents < ActiveRecord::Migration
   def up
     Cms::Content.create_translation_table! :title => :string, :slug => :string, :abstract => :text, :description => :text
   end

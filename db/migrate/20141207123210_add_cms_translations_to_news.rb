@@ -1,4 +1,4 @@
-class AddTranslationsToNews < ActiveRecord::Migration
+class AddCmsTranslationsToNews < ActiveRecord::Migration
   def up
     Cms::News.create_translation_table!({
       :title => :string,
