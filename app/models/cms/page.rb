@@ -16,9 +16,38 @@ module Cms
     belongs_to :section, :foreign_key => :section_id #, :class_name => 'Cms::Section'
 
     class << self
+      def extra_fields_config
+        {section_landing_page: :boolean}
+      end
+
       def visible_fields
         (super - [:section_id] + [:section, :page_blocks, :page_assets])
       end
     end
+
+
+    ## Landing logic
+    # Verify that only one page can be set ad landing page for a specific section
+    before_save :check_landing
+    scope :landing_for_section, ->(section_name){joins(:section).where("cms_sections.name = ?", section_name)}
+
+    protected
+
+    def check_landing
+      unless self.section
+        self.section_landing_page = false
+      else
+        if self.section_landing_page
+          #unset previous new opening records
+          shops = self.class.landing_for_section(self.section.name)
+          shops.each do |s|
+            s.section_landing_page = false
+            s.save
+          end
+        end
+      end
+    end
+    ## // Landing logic
+
   end
 end

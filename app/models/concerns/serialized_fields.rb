@@ -39,7 +39,7 @@ module SerializedFields
       end
 
       def visible_fields
-        (extra_fields_config.keys.concat(new.attributes.keys.collect{|k| k.to_sym}) - [:id, :created_at, :updated_at, :type, :slug, :extra_fields])
+        (new.attributes.keys.collect{|k| k.to_sym}.concat(extra_fields_config.keys) - [:id, :created_at, :updated_at, :type, :slug, :extra_fields])
       end
     end
 

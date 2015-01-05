@@ -29,5 +29,9 @@ module Cms
     validates_uniqueness_of :slug
 
     has_many :pages, dependent: :destroy
+
+    def landing_page
+      pages.landing_for_section(self.name).first rescue nil
+    end
   end
 end
