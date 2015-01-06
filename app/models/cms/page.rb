@@ -2,7 +2,7 @@ module Cms
   class Page < Content
 
     has_one :menu_entry, as: :target
-
+    has_many :launches, as: :target, :inverse_of => :target, :class_name => 'Cms::Launch'
     has_many :references, as: :target, :inverse_of => :target, :class_name => 'Cms::PageBlock'
 
     has_many :page_assets, as: :assetable, dependent: :destroy #, :class_name => 'Cms::PageAsset'

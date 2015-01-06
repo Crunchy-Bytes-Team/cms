@@ -7,6 +7,7 @@ module Cms
     friendly_id :name, use: [:slugged, :globalize]
 
     has_one :menu_entry, as: :target
+    has_many :launches, as: :target, :inverse_of => :target, :class_name => 'Cms::Launch'
 
     validates :code,
       uniqueness: true,
