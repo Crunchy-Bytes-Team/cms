@@ -4,6 +4,7 @@ class CreateCmsNews < ActiveRecord::Migration
       t.string :news_type
       t.string :title
       t.string :subtitle
+      t.string :category
       t.string :slug, uniq: true, index: true
       t.date :date
       t.string :image
