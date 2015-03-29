@@ -28,7 +28,7 @@ module Cms
 
     ## Landing logic
     # Verify that only one page can be set ad landing page for a specific section
-    before_save :check_landing
+    after_save :check_landing
     scope :landing_for_section, ->(section_name){joins(:section).where("cms_sections.name = ?", section_name)}
 
     protected
