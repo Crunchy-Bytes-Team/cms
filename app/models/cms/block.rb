@@ -2,6 +2,7 @@ module Cms
   class Block < ActiveRecord::Base
     include Visibility
     include SerializedFields
+    #include NestedSerialization
 
     translates :title, :subtitle, :abstract, :description
 
@@ -17,7 +18,7 @@ module Cms
 
     class << self
       def visible_fields
-        (extra_fields_config.keys.concat(new.attributes.keys.collect{|k| k.to_sym}) - [:id, :created_at, :updated_at, :type, :extra_fields])
+        ([:block_type] + new.attributes.keys.collect{|k| k.to_sym}.concat(extra_fields_config.keys - [:block_type]) - [:id, :created_at, :updated_at, :type, :extra_fields])
       end
 
       def block_types_enum
@@ -27,7 +28,19 @@ module Cms
       def icon_enum
         []
       end
+
+      # def inherited(subclass)
+      #   subclass.extra_fields_config.each do |k,v|
+      #     logger.info "Defining #{k}="
+      #     define_method "#{k}=" do |val|
+      #       subclass.extra_fields[k.to_sym] = val
+      #     end
+      #   end
+      # end
+
     end
+
+
 
   end
 end

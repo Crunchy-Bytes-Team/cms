@@ -17,11 +17,13 @@ module SerializedFields
         {}
       end
 
-      def rails_admin_config(config)
+      def serialized_fields_config(config,only_serialized=false)
         klass = name.constantize
-        klass.visible_fields.each do |field_name|
+        fields = only_serialized ? klass.extra_fields_config.keys : klass.visible_fields
+        fields.each do |field_name|
           unless klass.extra_fields_config[field_name.to_sym].nil?
             if klass.respond_to? "#{field_name}_enum"
+              #binding.pry
               config.field field_name,  :enum do
                 enum do
                   klass.send("#{field_name}_enum")
@@ -32,7 +34,7 @@ module SerializedFields
             else
               config.field field_name, klass.extra_fields_config[field_name.to_sym] #field type for serialized fields
             end
-          else
+          else #real database field
             config.field field_name, (:ck_editor if [:description].include? field_name)
           end
         end

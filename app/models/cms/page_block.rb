@@ -11,8 +11,8 @@ module Cms
     accepts_nested_attributes_for :documents, :reject_if => :all_blank, :allow_destroy => true
 
     class << self
-      def block_types_enum
-        Global.cms_config[:blocks][:page_block_types].collect{|key, pars| [key, I18n.t(pars[:i18k], default: pars[:default])]}
+      def block_type_enum
+        Global.cms_config[:blocks][:page_block_types].collect{|key, pars| [I18n.t(pars[:i18n], default: pars[:default]), key]}
       end
 
       #extra fields stuff
@@ -25,6 +25,13 @@ module Cms
       # extra fields associated enum
       def icon_enum
         []
+      end
+    end
+
+    extra_fields_config.each do |k,v|
+      logger.info "Defining #{k}="
+      define_method "#{k}=" do |val|
+        extra_fields[k.to_sym] = val
       end
     end
 
