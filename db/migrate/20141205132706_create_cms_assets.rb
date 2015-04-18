@@ -12,7 +12,7 @@ class CreateCmsAssets < ActiveRecord::Migration
       t.boolean :published,       :default => true, :null => false
       t.string :url
       t.string :text_color
-
+      t.string :type
       t.timestamps
     end
   end

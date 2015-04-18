@@ -17,7 +17,10 @@ module Cms
       format: {
         :with => /\A[a-zA-Z0-9\_\.\-]+\z/,
         :message => "non può contenere numeri o spazi"
-      }
+      },
+      if: Proc.new{ self.class.code_required}
+
+
 
     validates :title,
       presence: true,
@@ -31,6 +34,10 @@ module Cms
 
       def visible_fields
         (extra_fields_config.keys.concat(new.attributes.keys.collect{|k| k.to_sym}) - [:id, :created_at, :updated_at, :type, :slug, :extra_fields, :content_id])
+      end
+
+      def code_required
+        true
       end
     end
   end
