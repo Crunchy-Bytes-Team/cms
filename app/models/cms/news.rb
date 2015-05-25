@@ -9,6 +9,8 @@ module Cms
     friendly_id :title, use: [:slugged, :globalize]
 
     scope :sorted, -> {order("date DESC")}
+    scope :highlighted, -> {where(highlight: true)}
+    scope :not_highlighted, -> {where(highlight: false)}
     mount_uploader :image, ImageUploader
 
     has_one :menu_entry, as: :target
