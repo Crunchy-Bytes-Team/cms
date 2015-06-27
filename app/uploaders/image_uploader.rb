@@ -29,6 +29,10 @@ class ImageUploader < ::CarrierWave::Uploader::Base
     process resize_to_fit: [400, 400]
   end
 
+  version :vertical_box do
+    process resize_to_fill: [570, 700]
+  end
+
   version :common_hero do
     process resize_to_fill: [1280, 410]
   end

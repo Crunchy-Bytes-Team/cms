@@ -1,6 +1,6 @@
 module Cms
   class Page < Content
-
+    include UniqueCode
     has_one :menu_entry, as: :target
     has_many :launches, as: :target, :inverse_of => :target, :class_name => 'Cms::Launch'
     has_many :references, as: :target, :inverse_of => :target, :class_name => 'Cms::PageBlock'
@@ -21,7 +21,7 @@ module Cms
       end
 
       def visible_fields
-        (super - [:section_id] + [:section, :page_blocks, :page_assets])
+        (super - [:section_id, :category_id] + [:section, :page_blocks, :page_assets])
       end
     end
 
