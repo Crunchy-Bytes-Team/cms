@@ -10,6 +10,7 @@ class CreateCmsAssets < ActiveRecord::Migration
       t.string :file_size
       t.float :position
       t.boolean :published,       :default => true, :null => false
+      t.boolean :highlight, :default => false, :null => false
       t.string :url
       t.string :text_color
       t.string :type

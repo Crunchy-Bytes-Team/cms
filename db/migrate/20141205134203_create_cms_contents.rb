@@ -16,6 +16,7 @@ class CreateCmsContents < ActiveRecord::Migration
       t.string :type
       t.float :position
       t.boolean :published, :default => true, :null => false
+      t.boolean :highlight, :default => false, :null => false
       t.string :language
 
       t.timestamps

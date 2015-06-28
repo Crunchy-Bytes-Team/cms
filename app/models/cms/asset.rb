@@ -7,6 +7,8 @@ module Cms
     belongs_to :assettable, polymorphic: true, touch: true
     before_save :update_asset_attributes, if: :update_asset_attributes?
 
+    scope :highlighted, -> {where(highlight: true)}
+
     #validates :data, presence: true
     #mount_uploader :data, ImageBaseUploader
 

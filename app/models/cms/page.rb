@@ -11,6 +11,9 @@ module Cms
     has_many :page_blocks, dependent: :destroy, :foreign_key => :content_id #, :class_name => 'Cms::PageBlock'
     accepts_nested_attributes_for :page_blocks, :reject_if => :all_blank, :allow_destroy => true
 
+    has_many :page_documents, as: :documentable, dependent: :destroy
+    accepts_nested_attributes_for :page_documents, :reject_if => :all_blank, :allow_destroy => true
+
     mount_uploader :image, ImageUploader
 
     belongs_to :section, :foreign_key => :section_id #, :class_name => 'Cms::Section'
@@ -21,7 +24,7 @@ module Cms
       end
 
       def visible_fields
-        (super - [:section_id, :category_id] + [:section, :page_blocks, :page_assets])
+        (super - [:section_id, :category_id] + [:section, :page_blocks, :page_assets, :page_documents])
       end
     end
 

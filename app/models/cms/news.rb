@@ -11,6 +11,11 @@ module Cms
     scope :sorted, -> {order("date DESC")}
     scope :highlighted, -> {where(highlight: true)}
     scope :not_highlighted, -> {where(highlight: false)}
+    scope :by_type, ->(type){
+      unless type.blank?
+        where(news_type: type)
+      end
+    }
     mount_uploader :image, ImageUploader
 
     has_one :menu_entry, as: :target
