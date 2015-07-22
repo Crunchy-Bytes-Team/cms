@@ -7,6 +7,8 @@ module Cms
 
     mount_uploader :data, FileUploader
 
+    scope :by_language, ->(lang){where(language: lang)}
+
     def update_asset_attributes?
       data.present? && data_changed?
     end
