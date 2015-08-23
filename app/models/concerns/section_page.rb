@@ -19,7 +19,7 @@ module SectionPage
     ## Landing logic
     # Verify that only one page can be set ad landing page for a specific section
     after_save :check_section
-    scope :landing_for_section, ->{where("cms_contents.extra_fields LIKE ?","%section_landing_page: '1'%")}
+    scope :landing_for_section, ->{where("(cms_contents.extra_fields LIKE ?) OR (cms_contents.extra_fields LIKE ?)","%section_landing_page: '1'%","%section_landing_page: true%")}
 
     protected
 
