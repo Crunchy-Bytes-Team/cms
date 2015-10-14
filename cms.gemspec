@@ -7,11 +7,11 @@ require "cms/version"
 Gem::Specification.new do |s|
   s.name        = "cms"
   s.version     = Cms::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Cms."
-  s.description = "TODO: Description of Cms."
+  s.authors     = ["Davide Cenzi"]
+  s.email       = ["info@bluetouchdev.com"]
+  s.homepage    = ""
+  s.summary     = ""
+  s.description = ""
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
