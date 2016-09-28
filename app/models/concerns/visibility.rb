@@ -3,6 +3,7 @@ module Visibility
 
   included do
     scope :published, -> { where(published: true) }
-    default_scope {order("#{self.to_s.gsub('Cms::','cms_').tableize}.position ASC")}
+    scope :ordered, -> { order("#{self.to_s.gsub('Cms::','cms_').tableize}.position ASC") }
+    default_scope { ordered }
   end
 end
