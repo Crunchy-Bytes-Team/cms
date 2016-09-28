@@ -5,7 +5,7 @@ module Cms
     extend FriendlyId
 
     scope :highlighted, -> {where(highlight: true)}
-    
+
     translates :title, :slug, :abstract, :description
     friendly_id :title, use: [:slugged, :globalize]
 

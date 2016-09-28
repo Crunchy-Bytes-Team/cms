@@ -23,8 +23,8 @@ module Cms
     has_many :news_assets, as: :assetable, dependent: :destroy
     accepts_nested_attributes_for :news_assets, :reject_if => :all_blank, :allow_destroy => true
 
-    has_one :document, as: :documentable, dependent: :destroy
-    accepts_nested_attributes_for :document, :reject_if => :all_blank, :allow_destroy => true
+    has_many :documents, as: :documentable, dependent: :destroy
+    accepts_nested_attributes_for :documents, :reject_if => :all_blank, :allow_destroy => true
 
     validates_presence_of :title, allow_blank: false
     validates_uniqueness_of :slug
