@@ -1,5 +1,5 @@
 module Cms
-  class Section < ActiveRecord::Base
+  class Section < ApplicationRecord
     include Visibility
     extend FriendlyId
 

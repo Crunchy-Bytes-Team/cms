@@ -1,5 +1,5 @@
 module Cms
-  class MenuEntry < ActiveRecord::Base
+  class MenuEntry < ApplicationRecord
     include Visibility
 
     translates :title

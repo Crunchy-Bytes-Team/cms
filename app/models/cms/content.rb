@@ -1,5 +1,5 @@
 module Cms
-  class Content < ActiveRecord::Base
+  class Content < ApplicationRecord
     include Visibility
     include SerializedFields
     extend FriendlyId

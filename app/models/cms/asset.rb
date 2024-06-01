@@ -1,5 +1,5 @@
 module Cms
-  class Asset < ActiveRecord::Base
+  class Asset < ApplicationRecord
     include Visibility
 
     mount_uploader :data, ImageUploader

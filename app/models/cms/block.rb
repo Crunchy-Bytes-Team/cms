@@ -1,5 +1,5 @@
 module Cms
-  class Block < ActiveRecord::Base
+  class Block < ApplicationRecord
     include Visibility
     include SerializedFields
     #include NestedSerialization

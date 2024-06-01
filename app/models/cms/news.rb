@@ -1,5 +1,5 @@
 module Cms
-  class News < ActiveRecord::Base
+  class News < ApplicationRecord
     include Visibility
     extend FriendlyId
 

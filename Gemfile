@@ -5,18 +5,17 @@ source "https://rubygems.org"
 # development dependencies will be added by default to the :development group.
 gemspec
 
-gem 'rails', '4.1.1'
-gem 'mysql2'
+gem 'rails', '~>6.0'
+# gem 'mysql2'
 
-gem 'sass-rails', '~> 4.0.3'
-gem 'compass-rails'
+gem 'sass-rails' #, '~> 4.0.3'
+# gem 'compass-rails'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier' #, '>= 1.3.0'
 
-gem 'coffee-rails', '~> 4.0.0'
+# gem 'coffee-rails'
 gem 'slim'
-gem 'therubyracer',  platforms: :ruby
 
 gem 'turbolinks'
 gem 'jquery-turbolinks'
@@ -31,7 +30,7 @@ gem 'devise'
 #config.audit_with :paper_trail, 'User', 'Version' # PaperTrail < 3.0.0
 
 #breadcrumbs
-gem "crummy", "~> 1.8.0"
+gem "crummy" #, "~> 1.8.0"
 #gem 'breadcrumbs_on_rails'
 #forms / helpers
 gem 'friendly_id'
@@ -51,7 +50,7 @@ gem 'mini_magick'
 # application-wide configuration
 gem 'global'
 gem 'xml-sitemap'
-gem 'globalize', '~> 4.0.2'
+gem 'globalize' #, '~> 4.0.2'
 #gem 'carmen-rails'
 gem 'nested_form'
 gem "ransack"

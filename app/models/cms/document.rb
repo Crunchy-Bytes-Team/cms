@@ -1,5 +1,5 @@
 module Cms
-  class Document < ActiveRecord::Base
+  class Document < ApplicationRecord
     include Visibility
 
     belongs_to :documentable, polymorphic: true

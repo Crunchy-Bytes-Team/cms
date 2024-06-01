@@ -1,5 +1,5 @@
 module Cms
-  class Taxonomy < ActiveRecord::Base
+  class Taxonomy < ApplicationRecord
     include Visibility
 
     translates :name

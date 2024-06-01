@@ -1,5 +1,5 @@
 module Cms
-  class Launch < ActiveRecord::Base
+  class Launch < ApplicationRecord
     include Visibility
 
     translates :title, :subtitle
